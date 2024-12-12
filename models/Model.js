@@ -1,14 +1,25 @@
 export class Model {
-    constructor(weather) {
-        this.city;
-        this.temp;
+    constructor() {
+        this.city = "";
+        this.temp = null;
     }
 
-    get city() {
-        return this.city = weather.city;
-    }
+    async fetchWeather(cityName) {
+        const apiKey = "3d3ebf6246c40a1fef67004a8905fa30";
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
-    get temp() {
-        return this.temp = weather.temp;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("City not found");
+            }
+            const data = await response.json();
+            this.city = data.name;
+            this.temp = Math.round(data.main.temp);
+            return { city: this.city, temp: this.temp };
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     }
 }

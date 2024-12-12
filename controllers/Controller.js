@@ -3,18 +3,21 @@ export class Controller {
         this.model = model;
         this.view = view;
 
-        this.view.showBtn.addEventListener("click", () => this.showData());
-
+        this.view.showBtn.addEventListener("click", () => this.showWeather());
     }
 
-    getData(weather) {
-        this.view.showData((weather) => {
-            let url = `https://api.openweathermap.org/data/2.5/weather?q=${this.view.input.value}&appid=3d3ebf6246c40a1fef67004a8905fa30`;
-            fetch(url)
-                .then(response => response.json())
-                .then(json => {
+    async showWeather() {
+        const cityName = this.view.cityInput.value;
+        if (!cityName) {
+            alert("Please enter a city name!");
+            return;
+        }
 
-                });
-        });
+        try {
+            const weatherData = await this.model.fetchWeather(cityName);
+            this.view.renderWeather(weatherData);
+        } catch (error) {
+            this.view.renderError("Failed to fetch weather data. Please try again.");
+        }
     }
 }
