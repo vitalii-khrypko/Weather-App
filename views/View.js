@@ -3,12 +3,6 @@ export class View {
         this.cityInput = document.getElementById("city");
         this.tempPar = document.getElementById("temp");
         this.showBtn = document.getElementById("show-btn");
-
-        this.cityInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                this.showBtn.click();
-            }
-        });
     }
 
     renderWeather({ city, temp }) {
