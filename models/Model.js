@@ -2,6 +2,7 @@ export class Model {
     constructor() {
         this.city = "";
         this.temp = null;
+        this.icon = null;
     }
 
     async fetchWeather(cityName) {
@@ -15,8 +16,9 @@ export class Model {
             }
             const data = await response.json();
             this.city = data.name;
+            this.icon = data.weather[0].icon; // Виправлення доступу до іконки
             this.temp = Math.round(data.main.temp);
-            return { city: this.city, temp: this.temp };
+            return { city: this.city, temp: this.temp, icon: this.icon };
         } catch (error) {
             console.error(error);
             throw error;
