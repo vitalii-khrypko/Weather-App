@@ -1,29 +1,38 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-body{
+
+body {
     background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-.card{
+
+.card {
     width: 90%;
     max-width: 470px;
     background: linear-gradient(135deg, #00feba, #5b548a);
     color: #fff;
-    margin: 100px auto 0;
+    margin: 0 auto;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-.search{
+
+.search {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.search input{
+
+.search input {
     border: 0;
     outline: none;
     background: #ebfffc;
@@ -35,7 +44,8 @@ body{
     margin-right: 16px;
     font-size: 18px;
 }
-.search button{
+
+.search button {
     border: 0;
     outline: 0;
     background: #ebfffc;
@@ -44,9 +54,77 @@ body{
     height: 60px;
     cursor: pointer;
 }
-.search button img{
+
+.search button img {
     width: 16px;
 }
-img.weather-icon{
-    width: 100px;
+
+.weather {
+    margin-top: 30px;
 }
+
+.weather-icon {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.weather h1.temp {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.weather h2.city {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.weather p.country {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.weather h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weather .feels_like {
+    background-color: rgba(255, 221, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 22px;
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.weather .humidity {
+    background-color: rgba(0, 170, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 22px;
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.weather .windSpeed {
+    background-color: rgba(255, 87, 51, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 22px;
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+

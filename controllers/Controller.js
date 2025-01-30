@@ -8,8 +8,8 @@ export class Controller {
             if (e.key === "Enter") this.showWeather();
         });
 
-        // Завантажуємо дані з localStorage під час старту
-        this.loadSavedWeather();
+        // loading data from localStorage at the start
+        // this.loadSavedWeather();
     }
 
     async showWeather() {
@@ -21,24 +21,24 @@ export class Controller {
 
         try {
             const weatherData = await this.model.fetchWeather(cityName);
-            // Зберігаємо дані в localStorage
-            localStorage.setItem("lastCity", cityName);
-            localStorage.setItem("weatherData", JSON.stringify(weatherData));
-
+            // // saving data in localStorage
+            // localStorage.setItem("lastCity", cityName);
+            // localStorage.setItem("weatherData", JSON.stringify(weatherData));
+            //
             this.view.renderWeather(weatherData);
         } catch (error) {
             this.view.renderError("Failed to fetch weather data. Please try again.");
         }
     }
 
-    loadSavedWeather() {
-        const lastCity = localStorage.getItem("lastCity");
-        const weatherData = localStorage.getItem("weatherData");
-
-        if (lastCity && weatherData) {
-            // Якщо є збережені дані, відображаємо їх
-            this.view.cityInput.value = lastCity;
-            this.view.renderWeather(JSON.parse(weatherData));
-        }
-    }
+    // loadSavedWeather() {
+    //     const lastCity = localStorage.getItem("lastCity");
+    //     const weatherData = localStorage.getItem("weatherData");
+    //
+    //     if (lastCity && weatherData) {
+    //         // if data is saved, displaying data
+    //         this.view.cityInput.value = lastCity;
+    //         this.view.renderWeather(JSON.parse(weatherData));
+    //     }
+    // }
 }
